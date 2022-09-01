@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::get('/users/list', [UserController::class, 'show'])->middleware(['auth'])->name('list');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware(['auth']);
+
+require __DIR__ . '/auth.php';
