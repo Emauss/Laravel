@@ -16,3 +16,4 @@ yarn-error.log
 .history
 /public/js
 /public/css
+/public
